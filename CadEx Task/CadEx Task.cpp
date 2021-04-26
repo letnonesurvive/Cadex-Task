@@ -100,6 +100,6 @@ int main()
 		}
 	}
 	std::cout << "sum2=" << sum << std::endl;
-	return 0;
+	return 0;	
 }
 

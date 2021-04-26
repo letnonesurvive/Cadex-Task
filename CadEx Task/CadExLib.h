@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include <iostream>
 #include <string>
 
@@ -84,7 +84,7 @@ public:
 		Point3D deriv_point(-radius * sin(t), radius * cos(t), 0);
 		return deriv_point;
 	}
-	friend bool operator < (Circle const& c1, Circle const& c2) // îïåðàòîð ïåðåãðóæåí äëÿ äëÿ ñîðòèðîâêè
+	friend bool operator < (Circle const& c1, Circle const& c2) // Ð¾Ð¿ÐµÑ€Ð°Ñ‚Ð¾Ñ€ Ð¿ÐµÑ€ÐµÐ³Ñ€ÑƒÐ¶ÐµÐ½ Ð´Ð»Ñ Ð´Ð»Ñ ÑÐ¾Ñ€Ñ‚Ð¸Ñ€Ð¾Ð²ÐºÐ¸
 	{
 		return (c1.GetRadius() < c2.GetRadius());
 	}
