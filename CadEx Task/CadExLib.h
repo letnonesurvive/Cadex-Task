@@ -36,16 +36,10 @@ public:
 class Curve
 {
 protected:
-	std::string name;
+	
 public:
-	Curve()
-	{
-		//name = "unknow";
-	}
-	virtual std::string GetName()
-	{
-		return name;
-	}
+	Curve() {}
+	virtual std::string GetName()const noexcept = 0;
 	virtual Point3D GetPoint(double t) = 0;
 	virtual Point3D Derivative(double t) = 0;
 	virtual ~Curve() {} 
@@ -59,7 +53,6 @@ public:
 	Circle()
 	{
 		radius = 0;
-		this->name = "Circle";
 	}
 	Circle(double _radius)
 	{
@@ -68,7 +61,14 @@ public:
 		else if (_radius > r_max)
 			throw std::invalid_argument("Parameters too large");
 		radius = _radius;
-		this->name = "Circle";
+	}
+	static std::string name()noexcept
+	{
+		return "Circle";
+	}
+	std::string GetName() const noexcept 
+	{
+		return name();
 	}
 	double GetRadius() const
 	{
@@ -98,7 +98,6 @@ public:
 	Elips()
 	{
 		a = b = 0;
-		this->name = "Elips";
 	}
 	Elips(double _a, double _b)
 	{
@@ -108,7 +107,14 @@ public:
 			throw std::invalid_argument("Parameters too large");
 		a = _a;
 		b = _b;
-		this->name = "Elips";
+	}
+	static std::string name()noexcept
+	{
+		return "Elips";
+	}
+	virtual std::string GetName() const noexcept
+	{
+		return name();
 	}
 	double GetOxRadius() const
 	{
@@ -140,7 +146,7 @@ public:
 	{
 		radius = 0;
 		step = 0;
-		this->name = "Helix";
+		
 	}
 	Helix(double _radius, double _step)
 	{
@@ -150,7 +156,14 @@ public:
 			throw std::invalid_argument("Parameters too large");
 		radius = _radius;
 		step = _step;
-		this->name = "Helix";
+	}
+	static std::string name()noexcept
+	{
+		return "Helix";
+	}
+	virtual std::string GetName()const noexcept
+	{
+		return name();
 	}
 	Point3D GetPoint(double t) override
 	{
